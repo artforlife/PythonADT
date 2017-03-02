@@ -1,5 +1,5 @@
 # PythonADT
-Implementation of common and notx-so-common Abstract Data Types in Python
+Implementation of common and not-so-common Abstract Data Types in Python
 
 Usage:
  
