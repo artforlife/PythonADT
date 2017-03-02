@@ -1,5 +1,8 @@
 class LinkedList(object):
     class Node(object):
+        """
+        Inner class of LinkedList. Contains a blueprint for a node of the LinkedList
+        """
         def __init__(self, v, n=None):
             """
             Initializes a List node with payload v and link n

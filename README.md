@@ -1,2 +1,2 @@
 # PythonADT
-Implementation of common and no-so-common Abstract Data Types in Python
+Implementation of common and notx-so-common Abstract Data Types in Python
