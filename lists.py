@@ -16,14 +16,13 @@ class LinkedList(object):
         """
         self.head=None
          
-    def push(self, v):
+    def insert(self, v):
         """
         Adds an item with payload v to beginning of the list
         in O(1) time 
         """
         Node = self.Node(v, self.head)
         self.head = Node
-        print("Added item: ", Node.value, "self.head: ", self.head.value)
          
     def size(self):
         """
