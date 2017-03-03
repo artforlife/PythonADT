@@ -3,7 +3,7 @@ Implementation of common and not-so-common Abstract Data Types in Python
 
 Usage:
  
-1. Using LinkedList
+ Using LinkedList
 ~~~~
 from PythonADT.lists import LinkedList
 List = LinkedList()
@@ -12,7 +12,7 @@ List.size()
 print(List)
 ~~~~
 
-2. Using Stack
+ Using Stack
 ~~~~
 from PythonADT.stacks import Stack
 Stack = Stack()
