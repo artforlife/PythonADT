@@ -79,7 +79,18 @@ class LinkedList(object):
         else:
             current = self.__current
             self.__current=self.__current.next
-            return current      
+            return current
+            
+    def __str__(self):
+        """
+        Prints the current list in the form of a Python list            
+        """
+        current = self.head
+        toPrint = []
+        while current:
+            toPrint.append(current.value)
+            current = current.next
+        return str(toPrint)      
          
     def insert(self, value, position=0):
         """
@@ -145,17 +156,6 @@ class LinkedList(object):
             previous.next = current.next
              
         return current
-         
-    def __str__(self):
-        """
-        Prints the current list in the form of a Python list            
-        """
-        current = self.head
-        toPrint = []
-        while current != None:
-            toPrint.append(current.value)
-            current = current.next
-        return str(toPrint)
         
         
 class DLinkedList(object):
