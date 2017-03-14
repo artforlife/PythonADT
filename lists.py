@@ -3,22 +3,18 @@ class LinkedList(object):
         """
         Inner class of LinkedList. Contains a blueprint for a node of the LinkedList
         """
-        def __init__(self, value, next=None):
+        def __init__(self, _value, _next=None):
             """
             Initializes a List node with payload v and link n
             """
-            self.value=value
-            self.next=next
+            self.value = _value
+            self.next = _next
         
         def __eq__(self,other):
             """
             Defining comparison between nodes for unit testing
             """
-            if self.value == other.value and self.next == other.next:
-                return True
-            else:
-                return False
-            
+            return self.value == other.value and self.next == other.next
          
     def __init__(self):
         """
@@ -47,21 +43,9 @@ class LinkedList(object):
         found = False
         while current and not found:
             if current.value == value:
-                found = True
                 return True
-            else:
-                current = current.next
-        if not current:
-            return False 
-        
-    def __bool__(self):
-        """
-        Implements boolean check of the class
-        """
-        if self.__len__() == 0:
-            return False
-        else:
-            return True
+            current = current.next
+        return False 
                 
     def __iter__(self):
         """
@@ -76,19 +60,18 @@ class LinkedList(object):
         if not self.__current:
             self.__current=self.head
             raise StopIteration
-        else:
-            current = self.__current
-            self.__current=self.__current.next
-            return current
+        current = self.__current
+        self.__current=self.__current.next
+        return current
             
     def __str__(self):
         """
         Prints the current list in the form of a Python list            
         """
         current = self.head
-        toPrint = []
+        to_print = []
         while current:
-            toPrint.append(current.value)
+            to_print.append(current.value)
             current = current.next
         return str(toPrint)      
          
@@ -97,6 +80,10 @@ class LinkedList(object):
         Adds an item with payload v to beginning of the list
         in O(1) time or to position in the list in O(n) time 
         """
+        if value is None:
+            raise ValueError('Cannot add None item to a list')
+        if position < 0:
+            raise ValueError('Cannot add to negative position in the list')
         if position == 0:
             self.node = self.Node(value, self.head)
             self.head = self.node
@@ -126,7 +113,7 @@ class LinkedList(object):
         while current and not found:
             if current.value == value:
                 found = True
-            else:
+            else:    
                 current = current.next
         if not current:
             return None
@@ -136,6 +123,8 @@ class LinkedList(object):
         """
         Searches the list for a node with payload v. Returns the node object or None if not found. Time complexity is O(n) in worst case.
         """
+        if value is None:
+            raise ValueError('Cannot remove None item from the list')
         current = self.head
         previous = None
         found = False
