@@ -73,7 +73,7 @@ class LinkedList(object):
         while current:
             to_print.append(current.value)
             current = current.next
-        return str(toPrint)      
+        return str(to_print)      
          
     def insert(self, value, position=0):
         """

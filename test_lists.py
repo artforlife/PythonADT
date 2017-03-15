@@ -10,6 +10,33 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.linked_list.head, None, "Initial HEAD should be None")
         self.assertEqual(len(self.linked_list), 0, "Initial length should be zero")
         
+    def test_len(self):
+        self.assertEqual(len(self.linked_list), 0, "Newly initiated list's length should be zero")
+        self.linked_list.insert(1)
+        self.assertEqual(len(self.linked_list), 1, "List length should be 1")        
+    
+    def test_list(self):
+        node1 = self.linked_list.Node(1,None)
+        node2 = self.linked_list.Node(2,node1)
+        node3 = self.linked_list.Node(3,node2)
+        self.linked_list.insert(1)
+        self.linked_list.insert(2)
+        self.linked_list.insert(3)
+        self.assertEqual([node3,node2,node1], list(self.linked_list))
+        
+    def test_str(self):
+        self.linked_list.insert(1)
+        self.linked_list.insert(2)
+        self.linked_list.insert(3)
+        self.assertEqual(str(self.linked_list), '[3, 2, 1]', "List should be printed as [3, 2, 1]")
+        self.linked_list.delete(2)
+        self.assertEqual(str(self.linked_list), '[3, 1]',"List should be printed as [3, 1]")
+        self.linked_list.delete(3)
+        self.assertEqual(str(self.linked_list), '[1]', "List should be printed as [1]")
+        self.linked_list.delete(1)
+        self.assertEqual(str(self.linked_list), '[]', "List should be printed as []")
+        
+        
     def test_insert(self):
         self.assertEqual(self.linked_list.insert(1), self.linked_list.Node(1, None), "Inserting 1 into list should return node with value=1")
         self.assertEqual(list(self.linked_list),[self.linked_list.Node(1)], "Inserting 1 into empty list should give [1]")
